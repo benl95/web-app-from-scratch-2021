@@ -18,17 +18,12 @@ window.location.hash = '';
 // Set token
 let _token = hash.access_token;
 const authEndpoint = 'https://accounts.spotify.com/authorize';
-const clientId = clientID;
-const redirectUri = redirectURI;
 const scopes = ['user-library-read', 'user-read-email', 'user-read-private'];
-
-console.log(_token);
-console.log(redirectUri);
 
 // If there is no token, redirect to Spotify authorization
 connectToSpotify.addEventListener('click', () => {
 	if (!_token) {
-		window.location = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join(
+		window.location = `${authEndpoint}?client_id=${clientID}&redirect_uri=${redirectURI}&scope=${scopes.join(
 			'%20'
 		)}&response_type=token`;
 	}
