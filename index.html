@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Implicit Grant Flow with Spotify API</title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="">
+   </head>
+
+   <body>
+
+      <div class="container">
+         <div id="login">
+            <h1>Implicift Grant Flow</h1>
+            <button id="login-button"class="btn btn-primary">Log in with Spotify</button>
+         </div>
+         <div class="loggedin">
+            <div id="user-profile"></div>
+            <div id="oauth"></div>
+         </div>
+      </div>
+
+      <script src="./modules/spotifyAPI.js" type="module" async defer></script>
+      <script src="./server.js" async defer></script>
+   </body>
+</html>
