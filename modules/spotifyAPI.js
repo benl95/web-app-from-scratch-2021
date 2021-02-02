@@ -18,7 +18,12 @@ window.location.hash = '';
 // Set token
 let _token = hash.access_token;
 const authEndpoint = 'https://accounts.spotify.com/authorize';
-const scopes = ['user-read-email', 'user-read-private', 'user-library-read'];
+const scopes = [
+	'user-read-email',
+	'user-read-private',
+	'user-library-read',
+	'user-read-recently-played',
+];
 
 // Set options
 const options = {
@@ -38,7 +43,6 @@ connectToSpotify.addEventListener('click', () => {
 			'%20'
 		)}&response_type=token`;
 	}
-
 	if (_token) {
 		console.log('Current token: ', _token);
 
