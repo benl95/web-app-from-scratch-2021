@@ -23,6 +23,7 @@ const redirectUri = redirectURI;
 const scopes = ['user-library-read', 'user-read-email', 'user-read-private'];
 
 console.log(_token);
+console.log(redirectUri);
 
 // If there is no token, redirect to Spotify authorization
 connectToSpotify.addEventListener('click', () => {
