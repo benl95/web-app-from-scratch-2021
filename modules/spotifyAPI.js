@@ -18,7 +18,18 @@ window.location.hash = '';
 // Set token
 let _token = hash.access_token;
 const authEndpoint = 'https://accounts.spotify.com/authorize';
-const scopes = ['user-library-read', 'user-read-email', 'user-read-private'];
+const scopes = ['user-read-email', 'user-read-private', 'user-library-read'];
+
+// Set options
+const options = {
+	method: 'get',
+	headers: {
+		Authorization:
+			'Bearer ' + new Uint8Array(clientID + ':' + _token).toString('base64'),
+		'Content-Type': 'application/x-www-form-urlencoded',
+	},
+	json: true,
+};
 
 // If there is no token, redirect to Spotify authorization
 connectToSpotify.addEventListener('click', () => {
@@ -26,5 +37,18 @@ connectToSpotify.addEventListener('click', () => {
 		window.location = `${authEndpoint}?client_id=${clientID}&redirect_uri=${redirectURI}&scope=${scopes.join(
 			'%20'
 		)}&response_type=token`;
+	}
+
+	if (_token) {
+		console.log('Current token: ', _token);
+
+		fetch('https://api.spotify.com/v1/me/player/recently-played', options)
+			.then((response) => {
+				console.log('Response: ', response);
+				return response.json();
+			})
+			.then((data) => {
+				console.log('Data: ', data);
+			});
 	}
 });
