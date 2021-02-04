@@ -20,9 +20,9 @@ let access_token = hash.access_token;
 const authEndpoint = 'https://accounts.spotify.com/authorize';
 const scopes = ['user-read-email', 'user-read-private'];
 
+// Access token options to access Spotify Web API
 const options = {
 	method: 'get',
-	url: 'https://accounts.spotify.com/api/token',
 	headers: {
 		Authorization: 'Bearer ' + access_token,
 		'Content-Type': 'application/x-www-form-urlencoded',
@@ -39,6 +39,7 @@ connectToSpotify.addEventListener('click', () => {
 	}
 });
 
+// If there is token, fetch user account details
 if (access_token) {
 	fetch('https://api.spotify.com/v1/me', options)
 		.then((response) => {
@@ -47,5 +48,7 @@ if (access_token) {
 		})
 		.then((data) => {
 			console.log('Data: ', data);
+			let displayName = document.getElementById('display-name');
+			displayName.innerHTML = data.display_name;
 		});
 }
