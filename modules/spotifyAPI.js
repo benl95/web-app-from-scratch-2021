@@ -1,6 +1,7 @@
 import { clientID, redirectURI } from '../authorization.js';
 
 const connectToSpotify = document.getElementById('login-button');
+const fetchEndpoints = ['https://api.spotify.com/v1/me'];
 
 // Get the hash of the url
 const hash = window.location.hash
@@ -41,7 +42,7 @@ connectToSpotify.addEventListener('click', () => {
 
 // If there is token, fetch user account details
 if (access_token) {
-	fetch('https://api.spotify.com/v1/me', options)
+	fetch(fetchEndpoints[0], options)
 		.then((response) => {
 			console.log('Response: ', response);
 			return response.json();
