@@ -99,8 +99,8 @@ name, email address
 
 ## To Do's
 
--  [] Render profile information to view
--  [] Render playlist to view
+-  [ ] Render profile information to view
+-  [ ] Render playlist to view
 
 <!-- How about a license here? 📜 (or is it a licence?) 🤷 -->
 
