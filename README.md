@@ -77,7 +77,7 @@ account and renders that data to the view.
 
 <!-- How about a section that describes how to install this project? 🤓 -->
 
-## Installation Duide
+## Installation Guide
 
 1. Navigate to desired directory `cd desktop`
 2. Clone the repo to directory
