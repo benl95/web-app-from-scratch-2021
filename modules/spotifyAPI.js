@@ -1,4 +1,4 @@
-import { clientID, redirectURI } from '../authorization.js';
+import { clientID } from '../authorization.js';
 
 const connectToSpotify = document.getElementById('login-button');
 
@@ -17,6 +17,7 @@ window.location.hash = '';
 
 // Set token
 let access_token = hash.access_token;
+const redirectURI = window.location.origin;
 const authEndpoint = 'https://accounts.spotify.com/authorize';
 const scopes = ['user-read-email', 'user-read-private'];
 
