@@ -1,15 +1,18 @@
-import { clientID, redirectURI } from '../authorization.js';
+import { clientID, redirectURI } from '../config.js';
+import { fetchData } from '../utils/fetchData.js';
+import { convertToJSON } from '../utils/convertToJSON.js';
+import { filterData } from '../utils/filterData.js';
 
 const connectToSpotify = document.getElementById('login-button');
-const fetchEndpoints = ['https://api.spotify.com/v1/me'];
+const endpoints = ['https://api.spotify.com/v1/me'];
 
 // Get the hash of the url
 const hash = window.location.hash
 	.substring(1)
 	.split('&')
-	.reduce(function (initial, item) {
+	.reduce((initial, item) => {
 		if (item) {
-			var parts = item.split('=');
+			let parts = item.split('=');
 			initial[parts[0]] = decodeURIComponent(parts[1]);
 		}
 		return initial;
@@ -42,14 +45,12 @@ connectToSpotify.addEventListener('click', () => {
 
 // If there is token, fetch user account details
 if (access_token) {
-	fetch(fetchEndpoints[0], options)
-		.then((response) => {
-			console.log('Response: ', response);
-			return response.json();
-		})
+	fetchData(endpoints, options)
+		.then(convertToJSON)
 		.then((data) => {
 			console.log('Data: ', data);
-			let displayName = document.getElementById('display-name');
-			displayName.innerHTML = data.display_name;
+			let displayName = filterData(data, 'display_name');
+			let element = document.getElementById('display-name');
+			element.innerHTML = displayName;
 		});
 }
