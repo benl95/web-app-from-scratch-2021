@@ -2,12 +2,15 @@
 
 Web App From Scratch @cmda-minor-web 2020 - 2021
 
-Comparify is an application that lets a user compare their own playlists with to
+Comparify is an application that lets a user compare their own playlists to
 playlists from other users. When a user compares their playlist to another
 playlist the following information will be displayed to the user:
 
 -  Matching songs
--  Matching artists
+
+## Actor Diagram
+
+<img width="1769" alt="Schermafbeelding 2021-02-09 om 15 18 54" src="https://user-images.githubusercontent.com/43675725/107376402-258fba80-6aea-11eb-9ce9-4cf162a1e649.png">
 
 ## Live Demo
 
@@ -28,12 +31,11 @@ your own for free.
 ## Features
 
 -  Compare playlists to each other.
--  Matching songs, artists and genres will be displayed to the user.
+-  Matching songs will be displayed to user
 
 ## Data
 
-The Spotify API will be used in this application to get a list of playlists from
-users.
+The Spotify API will be used in this application to get playlists from users.
 
 There are four ways of authorization to access the Spotify API and fetch the
 desired data. These are the following:
@@ -69,7 +71,7 @@ fetchData(endpoints, options)
 ## To Do's
 
 -  [x] Fetch data from API
--  [ ] Render profile information to view
+-  [x] Fetch tracks from a playlist
 -  [ ] Render playlist to view
 
 ## License
