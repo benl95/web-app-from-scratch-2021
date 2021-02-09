@@ -70,9 +70,10 @@ fetchData(endpoints, options)
 
 ## To Do's
 
--  [x] Fetch data from API
+-  [x] Connect to API
 -  [x] Fetch tracks from a playlist
--  [ ] Render playlist to view
+-  [ ] Compare playlist on matching songs
+-  [ ] Render matching songs to view
 
 ## License
 
