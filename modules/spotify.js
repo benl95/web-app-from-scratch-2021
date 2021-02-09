@@ -3,8 +3,12 @@ import { fetchData } from '../utils/fetchData.js';
 import { convertToJSON } from '../utils/convertToJSON.js';
 import { filterData } from '../utils/filterData.js';
 
+const playlist_id = ['1zwejd656eHkvkPw8yQw0u', '7C3csS72UIlhs9iY5hpntS'];
 const connectToSpotify = document.getElementById('login-button');
-const endpoints = ['https://api.spotify.com/v1/me'];
+const endpoints = [
+	`https://api.spotify.com/v1/playlists/${playlist_id[0]}/tracks`,
+	`https://api.spotify.com/v1/playlists/${playlist_id[1]}/tracks`,
+];
 
 // Get the hash of the url
 const hash = window.location.hash
@@ -22,7 +26,11 @@ window.location.hash = '';
 // Set token
 let access_token = hash.access_token;
 const authEndpoint = 'https://accounts.spotify.com/authorize';
-const scopes = ['user-read-email', 'user-read-private'];
+const scopes = [
+	'user-read-email',
+	'user-read-private',
+	'playlist-read-collaborative',
+];
 
 // Access token options to access Spotify Web API
 const options = {
@@ -49,8 +57,11 @@ if (access_token) {
 		.then(convertToJSON)
 		.then((data) => {
 			console.log('Data: ', data);
-			let displayName = filterData(data, 'display_name');
-			let element = document.getElementById('display-name');
-			element.innerHTML = displayName;
+			const firstDataset = data[0].items;
+			const secondDataset = data[1].items;
+			const playlistOne = filterData(firstDataset, 'track');
+			const playlistTwo = filterData(secondDataset, 'track');
+			console.log(playlistOne);
+			console.log(playlistTwo);
 		});
 }
