@@ -10,6 +10,7 @@ const endpoints = [
 	`https://api.spotify.com/v1/playlists/${playlist_id[1]}/tracks`,
 ];
 
+// https://gist.github.com/arirawr/f08a1e17db3a1f65ada2c17592757049
 // Get the hash of the url
 const hash = window.location.hash
 	.substring(1)
