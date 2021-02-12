@@ -1,7 +1,7 @@
 import { clientID, redirectURI } from '../config.js';
-import { fetchData } from '../utils/fetchData.js';
-import { convertToJSON } from '../utils/convertToJSON.js';
-import { filterData } from '../utils/filterData.js';
+import { fetchData } from '../data/fetchData.js';
+import { convertToJSON } from '../data/convertToJSON.js';
+import { filterData } from '../data/filterData.js';
 
 const playlist_id = ['1zwejd656eHkvkPw8yQw0u', '7C3csS72UIlhs9iY5hpntS'];
 const connectToSpotify = document.getElementById('login-button');
