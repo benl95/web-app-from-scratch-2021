@@ -59,8 +59,8 @@ if (access_token) {
 			console.log('Data: ', data);
 			const firstDataset = data[0].items;
 			const secondDataset = data[1].items;
-			const playlistOne = filterData(firstDataset, 'track');
-			const playlistTwo = filterData(secondDataset, 'track');
+			const playlistOne = filterData(firstDataset, 'track', 'name');
+			const playlistTwo = filterData(secondDataset, 'track', 'name');
 			console.log(playlistOne);
 			console.log(playlistTwo);
 		});
