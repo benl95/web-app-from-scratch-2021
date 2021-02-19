@@ -1,15 +1,9 @@
 import { token } from '../modules/spotify.js';
 
-// Playlists id's
-const playlist_id = ['1zwejd656eHkvkPw8yQw0u', '7C3csS72UIlhs9iY5hpntS'];
+// Endpoint to retrieve list of playlists of a user from
+const playlistEndpoint = [`https://api.spotify.com/v1/users/me/playlists`];
 
-// Endpoints to fetch playlists from
-const endpoints = [
-	`https://api.spotify.com/v1/playlists/${playlist_id[0]}/tracks`,
-	`https://api.spotify.com/v1/playlists/${playlist_id[1]}/tracks`,
-];
-
-// Use token to to access the Spotify API
+// Use token to access the Spotify API
 const options = {
 	method: 'get',
 	headers: {
@@ -19,22 +13,28 @@ const options = {
 	json: true,
 };
 
-// Fetch data from Spotify API
-fetchData(endpoints, options)
+// Fetch playlist metadata from Spotify API
+export const handleData = fetchData(playlistEndpoint, options)
 	.then(convertToJSON)
 	.then((data) => {
 		console.log('Data: ', data);
-		const endpointOne = data[0].items;
-		const endpointTwo = data[1].items;
-		const playlistOne = filterData(endpointOne, 'track', 'name');
-		const playlistTwo = filterData(endpointTwo, 'track', 'name');
-		console.log(playlistOne);
-		console.log(playlistTwo);
+		const list = data[0].items;
+		const metaData = filterData(list);
+		console.log(metaData);
+		return metaData;
 	});
 
-// Filter data stored in array based on the column and key that are passed
-function filterData(array, column, key) {
-	return array.map((data) => data[column][key]);
+// Filter passed array in argument and get the value of the keys: name, tracks api endpoint and playlist image url
+function filterData(array) {
+	const metaData = array.map((x) => {
+		const keys = {
+			playlistName: x.name,
+			tracksEndpoint: x.tracks.href,
+			imageUrl: x.images[0].url,
+		};
+		return keys;
+	});
+	return metaData;
 }
 
 // Fetch data from endpoint and pass options as argument for Spotify Authorization
