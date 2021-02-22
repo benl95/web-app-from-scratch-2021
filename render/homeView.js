@@ -1,14 +1,12 @@
-import { handleData } from '../data/handleData.js';
-
 const DOMElements = {
 	listContainer: 'list-container',
 };
 
-handleData.then((playlistObject) => {
-	const playlistItems = createItemTemplate(playlistObject);
+export const renderHome = (playlistData) => {
+	const playlistItems = createItemTemplate(playlistData);
 	const listContainer = document.getElementById(DOMElements.listContainer);
 	listContainer.innerHTML = playlistItems;
-});
+};
 
 function createItemTemplate(data) {
 	const playlistItems = data.reduce((item, key) => {
