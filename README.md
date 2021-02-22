@@ -71,9 +71,15 @@ fetchData(endpoints, options)
 ## To Do's
 
 -  [x] Connect to API
+-  [x] Fetch a list of playlists
 -  [x] Fetch tracks from a playlist
--  [ ] Compare playlist on matching songs
--  [ ] Render matching songs to view
+-  [x] Filter raw data
+-  [x] Render list of playlists to view
+-  [ ] Set up routing for home and detail page
+-  [ ] Render songs of a playlist to view
+-  [ ] Style pages
+-  [ ] Create compare function to compare playlists to each other on matching
+       songs
 
 ## License
 
