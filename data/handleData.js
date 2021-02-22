@@ -1,7 +1,7 @@
-import { token } from '../modules/spotify.js';
+import { token } from '../api/spotify.js';
 
 // Endpoint to retrieve list of playlists of a user from
-const playlistEndpoint = [`https://api.spotify.com/v1/users/me/playlists`];
+const playlistEndpoint = [`https://api.spotify.com/v1/me/playlists`];
 
 // Use token to access the Spotify API
 const options = {
@@ -19,22 +19,21 @@ export const handleData = fetchData(playlistEndpoint, options)
 	.then((data) => {
 		console.log('Data: ', data);
 		const list = data[0].items;
-		const metaData = filterData(list);
-		console.log(metaData);
+		const metaData = createItemList(list);
 		return metaData;
 	});
 
 // Filter passed array in argument and get the value of the keys: name, tracks api endpoint and playlist image url
-function filterData(array) {
-	const metaData = array.map((x) => {
-		const keys = {
+function createItemList(array) {
+	const playlistData = array.map((x) => {
+		const playlistItem = {
 			playlistName: x.name,
-			tracksEndpoint: x.tracks.href,
-			imageUrl: x.images[0].url,
+			id: x.id,
+			imageHref: x.images[0].url,
 		};
-		return keys;
+		return playlistItem;
 	});
-	return metaData;
+	return playlistData;
 }
 
 // Fetch data from endpoint and pass options as argument for Spotify Authorization
