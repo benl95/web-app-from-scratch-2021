@@ -1,25 +1,26 @@
 import { handleData } from '../data/handleData.js';
 
 const DOMElements = {
-	itemContainer: 'item-container',
+	listContainer: 'list-container',
 };
 
-handleData.then((data) => {
-	let listItems = createItemTemplate(data);
-	console.log(listItems);
-	let item = document.getElementById(DOMElements.itemContainer);
-	item.innerHTML = listItems;
+handleData.then((playlistData) => {
+	const playlistItems = createItemTemplate(playlistData);
+	const listContainer = document.getElementById(DOMElements.listContainer);
+	listContainer.innerHTML = playlistItems;
 });
 
 function createItemTemplate(data) {
-	const item = data.reduce((result, item) => {
+	const playlistItem = data.reduce((result, item) => {
 		let template = `
-		<img src="${item.imageHref}">
-		<h2>${item.playlistName}</h2>
+		<div id="item-container">
+			<img src="${item.imageHref}" alt="Playlist image">
+			<h2>${item.playlistName}</h2>
+		</div>
 		`;
 
 		result += template;
 		return result;
 	});
-	return item;
+	return playlistItem;
 }
