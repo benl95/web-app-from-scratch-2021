@@ -4,23 +4,23 @@ const DOMElements = {
 	listContainer: 'list-container',
 };
 
-handleData.then((playlistData) => {
-	const playlistItems = createItemTemplate(playlistData);
+handleData.then((playlistObject) => {
+	const playlistItems = createItemTemplate(playlistObject);
 	const listContainer = document.getElementById(DOMElements.listContainer);
 	listContainer.innerHTML = playlistItems;
 });
 
 function createItemTemplate(data) {
-	const playlistItem = data.reduce((result, item) => {
+	const playlistItems = data.reduce((item, key) => {
 		let template = `
 		<div id="item-container">
-			<img src="${item.imageHref}" alt="Playlist image">
-			<h2>${item.playlistName}</h2>
+			<img src="${key.img}" alt="Playlist image">
+			<h2>${key.playlistName}</h2>
 		</div>
 		`;
 
-		result += template;
-		return result;
-	});
-	return playlistItem;
+		item += template;
+		return item;
+	}, []);
+	return playlistItems;
 }
