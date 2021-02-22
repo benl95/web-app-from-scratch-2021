@@ -16,17 +16,14 @@
             <h1>Authenthicate Spotify</h1>
             <button id="login-button"class="btn btn-primary">Log in with Spotify</button>
          </div>
-         <div class="profile-container">
-            <h2 id="display-name"></h2>
-         </div>
-         <div class="loggedin">
-            <div id="user-profile"></div>
-            <div id="oauth"></div>
+         <div class="list-container">
+            <div id="item-container">
+            </div>
          </div>
       </div>
-
       <script src="./data/handleData.js" type="module"></script>
-      <script src="./modules/spotify.js" type="module"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/routie/0.3.2/routie.min.js" integrity="sha512-uawpwYzsuRBIPLEokpO3B70T3/gISq67oTbMbUxvO3CeWaDxvLxwSq6Lb3cYeGUj1Pr//s1tPjVmlRZ/HEDazQ==" crossorigin="anonymous"></script>
+      <script src="./api/spotify.js" type="module"></script>
+      <script src="./render/homeView.js" type="module"></script>
+      <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
    </body>
 </html>
