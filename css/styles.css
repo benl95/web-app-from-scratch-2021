@@ -1,3 +1,82 @@
+/* Remove padding and margin */
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+/* Containers */
+
+#login {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.header {
+	display: flex;
+	justify-content: center;
+	border-bottom: 1px solid #d9dadc;
+	width: 100%;
+	padding: 25px 0 10px;
+	margin-bottom: 30px;
+}
+
+#list-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+/*	Log in view */
+
+.spotify-logo {
+	background-image: url(../icons/Spotify_Logo_RGB_Black.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width: 100%;
+	height: 5em;
+	width: 200px;
+	display: block;
+}
+
+h1 {
+	font-size: 18px;
+	color: #222326;
+	font-weight: 900;
+	line-height: 1.1;
+	font-family: sans-serif;
+	margin-top: 12px;
+	margin-bottom: 12px;
+}
+
+#login-button {
+	background-color: #1db954;
+	border: none;
+	padding: 16px 14px 18px;
+	width: 350px;
+	text-transform: uppercase;
+	font-size: 14px;
+	color: white;
+	border-radius: 30px;
+	outline: none;
+	line-height: 1;
+	letter-spacing: 2px;
+	white-space: normal;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#login-button:hover {
+	background-color: #1ed760;
+}
+
+/* Home view */
+
+/* Detail view */
+
+/*	Active classes */
+
 .login-toggle {
-	display: none;
+	display: none !important;
 }
