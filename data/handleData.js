@@ -1,5 +1,5 @@
 import { token } from '../api/spotify.js';
-import { endpoints } from '../config.js';
+import { playlistEndpoint } from '../config.js';
 
 // Use token to access the Spotify API
 const options = {
@@ -12,14 +12,14 @@ const options = {
 };
 
 // Fetch playlist metadata from Spotify API
-export const handleData = fetchData(endpoints, options)
+export const fetchPlaylist = fetchData(playlistEndpoint, options)
 	.then(convertToJSON)
 	.then((data) => {
 		console.log('Data: ', data);
 		const list = data[0].items;
-		const playlistObject = createItemList(list);
-		console.log('Filtered data: ', playlistObject);
-		return playlistObject;
+		const playlistData = createItemList(list);
+		console.log('Filtered data: ', playlistData);
+		return playlistData;
 	});
 
 // Filter passed array in argument and get the value of the keys: name, tracks api endpoint and playlist image url
