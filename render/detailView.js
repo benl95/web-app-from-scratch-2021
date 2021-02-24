@@ -6,29 +6,28 @@ const DOMElements = {
 };
 
 export const renderDetail = () => {
-	fetchPlaylist.then((playlistData) => {
-		const idList = filterData(playlistData, 'id');
-		const trackEndpoints = createEndpoint(idList);
-		const elements = DOMElements.playlistItem;
+	fetchPlaylist
+		.then((playlistData) => {
+			const idList = filterData(playlistData, 'id');
+			const trackEndpoints = createEndpoint(idList);
+			console.log(trackEndpoints);
+			return trackEndpoints;
+		})
+		.then((trackEndpoints) => {
+			const elements = DOMElements.playlistItem;
 
-		for (let i = 0; i < elements.length; i++) {
-			elements[i].addEventListener('click', () => {
-				console.log('clicked');
-			});
-		}
-	});
+			for (let i = 0; i < elements.length; i++) {
+				elements[i].addEventListener('click', () => {
+					console.log('clicked');
+				});
+			}
+		});
 };
-
-function trackClick(element) {
-	for (let i = 0; i < element.length; i++) {
-		element[i].addEventListener('click', true);
-	}
-}
 
 // Loop through array and create endpoint link for each item in array
 function createEndpoint(array) {
-	const endpoints = array.map((item) => {
-		const playlist_id = item;
+	const endpoints = array.map((id) => {
+		const playlist_id = id;
 		let links = `https://api.spotify.com/v1/playlists/${playlist_id}/tracks`;
 		return links;
 	});
