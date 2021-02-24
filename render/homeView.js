@@ -19,7 +19,7 @@ function renderItems(data) {
 function createItemTemplate(data) {
 	const playlistItems = data.reduce((item, key) => {
 		const template = `
-		<div id="item-container" class="item">
+		<div id="item-container" class="item" data-index="${key.id}">
 				<img src="${key.img}" alt="Playlist image">
 				<h2>${key.playlistName}</h2>
 		</div>

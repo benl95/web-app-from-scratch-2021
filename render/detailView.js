@@ -18,7 +18,9 @@ export const renderDetail = () => {
 
 			for (let i = 0; i < elements.length; i++) {
 				elements[i].addEventListener('click', () => {
-					console.log('clicked');
+					console.log('Clicked');
+					const id = elements[i].getAttribute('data-index');
+					console.log(id);
 				});
 			}
 		});
