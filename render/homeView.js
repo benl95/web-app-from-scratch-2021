@@ -6,20 +6,20 @@ const DOMElements = {
 
 export const renderHome = () => {
 	fetchPlaylist.then((playlistData) => {
-		renderItems(playlistData);
-		hide();
+		render(playlistData);
 	});
 };
 
-function hide() {
+function hideCurrentView() {
 	const loginContainer = document.getElementById('login');
 	loginContainer.setAttribute('class', 'toggle');
 }
 
-function renderItems(data) {
+function render(data) {
 	const listContainer = document.getElementById(DOMElements.listContainer);
 	const playlistItems = createItemTemplate(data);
 	listContainer.innerHTML = playlistItems;
+	hideCurrentView();
 }
 
 function createItemTemplate(data) {
