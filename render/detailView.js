@@ -5,7 +5,7 @@ import { fetchData } from '../data/handleData.js';
 import { convertToJSON } from '../data/handleData.js';
 
 export const renderDetail = () => {
-	fetchPlaylist.then(() => {
+	fetchPlaylist.then((playlistData) => {
 		Array.from(document.getElementsByClassName('item')).forEach((item) => {
 			item.addEventListener('click', () => {
 				const attrValue = Array.from(item.getAttribute('data-index'));
@@ -16,13 +16,34 @@ export const renderDetail = () => {
 				fetchData(endpoint, options)
 					.then(convertToJSON)
 					.then((data) => {
-						console.log('Tracks: ', data);
 						const tracks = data[0].items;
-						console.log(tracks);
 						const filteredTracks = filterData(tracks, 'track', 'name');
-						console.log(filteredTracks);
+						renderItems(filteredTracks);
+						hide();
 					});
 			});
 		});
 	});
 };
+
+function hide() {
+	const listContainer = document.getElementById('list-container');
+	listContainer.setAttribute('class', 'toggle');
+}
+
+function createTracksTemplate(data) {
+	const trackItems = data.reduce((item, key) => {
+		const template = `
+				<li>${key}</li> 
+		`;
+		item += template;
+		return item;
+	}, []);
+	return trackItems;
+}
+
+function renderItems(data) {
+	const tracksContainer = document.getElementById('tracks-list');
+	const trackItems = createTracksTemplate(data);
+	tracksContainer.innerHTML = trackItems;
+}
