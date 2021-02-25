@@ -15,10 +15,8 @@ export const options = {
 export const fetchPlaylist = fetchData(playlistEndpoint, options)
 	.then(convertToJSON)
 	.then((data) => {
-		console.log('Data: ', data);
 		const list = data[0].items;
 		const playlistData = createItemList(list);
-		console.log('Filtered data: ', playlistData);
 		return playlistData;
 	});
 
@@ -29,7 +27,6 @@ function createItemList(array) {
 			playlistName: x.name,
 			id: x.id,
 			img: x.images[0].url,
-			tracks: x.tracks.href,
 		};
 		return playlistItem;
 	});
