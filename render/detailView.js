@@ -1,8 +1,10 @@
-import { fetchPlaylist } from '../data/handleData.js';
+import {
+	fetchData,
+	convertToJSON,
+	options,
+	fetchPlaylist,
+} from '../data/handleData.js';
 import { filterData } from '../utils/utilFunctions.js';
-import { options } from '../data/handleData.js';
-import { fetchData } from '../data/handleData.js';
-import { convertToJSON } from '../data/handleData.js';
 
 export const renderDetail = () => {
 	fetchPlaylist.then(() => {
@@ -33,7 +35,7 @@ function getDataIndexElement(array) {
 					console.log(data);
 					const filteredTracks = filterTracks(data);
 					renderItems(filteredTracks);
-					hide();
+					hideCurrentView();
 				});
 		});
 	});
@@ -62,7 +64,7 @@ function renderItems(data) {
 	tracksContainer.innerHTML = trackItems;
 }
 
-function hide() {
+function hideCurrentView() {
 	const listContainer = document.getElementById('list-container');
 	listContainer.setAttribute('class', 'toggle');
 }
