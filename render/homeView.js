@@ -7,8 +7,14 @@ const DOMElements = {
 export const renderHome = () => {
 	fetchPlaylist.then((playlistData) => {
 		renderItems(playlistData);
+		hide();
 	});
 };
+
+function hide() {
+	const loginContainer = document.getElementById('login');
+	loginContainer.setAttribute('class', 'toggle');
+}
 
 function renderItems(data) {
 	const listContainer = document.getElementById(DOMElements.listContainer);
