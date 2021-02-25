@@ -2,7 +2,7 @@ import { token } from '../api/spotify.js';
 import { playlistEndpoint } from '../config.js';
 
 // Use token to access the Spotify API
-const options = {
+export const options = {
 	method: 'get',
 	headers: {
 		Authorization: 'Bearer ' + token,
@@ -29,6 +29,7 @@ function createItemList(array) {
 			playlistName: x.name,
 			id: x.id,
 			img: x.images[0].url,
+			tracks: x.tracks.href,
 		};
 		return playlistItem;
 	});
@@ -36,13 +37,13 @@ function createItemList(array) {
 }
 
 // Fetch data from endpoint and pass options as argument for Spotify Authorization
-function fetchData(url, options) {
+export function fetchData(url, options) {
 	const response = url.map((url) => fetch(url, options));
 	return Promise.all(response);
 }
 
 // Convert raw data to JSON
-function convertToJSON(result) {
+export function convertToJSON(result) {
 	const dataset = result.map((data) => data.json());
 	return Promise.all(dataset);
 }
