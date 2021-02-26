@@ -4,7 +4,6 @@ import {
 	options,
 	fetchPlaylist,
 } from '../data/handleData.js';
-import { filterData } from '../utils/utilFunctions.js';
 
 export const renderDetail = () => {
 	fetchPlaylist.then(() => {
@@ -15,16 +14,14 @@ export const renderDetail = () => {
 function render() {
 	const items = document.getElementsByClassName('item');
 	const itemsToArray = Array.from(items);
-	getDataIndexElement(itemsToArray);
+	getIdAndFetchTracks(itemsToArray);
 }
 
-function getDataIndexElement(array) {
+function getIdAndFetchTracks(array) {
 	array.forEach((item) => {
 		item.addEventListener('click', () => {
 			const dataIndex = Array.from(item.getAttribute('data-index'));
-			console.log(dataIndex);
 			const id = dataIndex.join('');
-			console.log(id);
 			const tracksEndpoint = [
 				`https://api.spotify.com/v1/playlists/${id}/tracks`,
 			];
@@ -41,16 +38,39 @@ function getDataIndexElement(array) {
 	});
 }
 
+function createItemList(array) {
+	const playlistTracks = array.map((x) => {
+		const playlistItem = {
+			artist: x.track.artists[0].name,
+			song: x.track.name,
+			duration: x.track.duration_ms,
+		};
+		return playlistItem;
+	});
+	return playlistTracks;
+}
+
 function filterTracks(data) {
 	const tracks = data[0].items;
-	const filteredTracks = filterData(tracks, 'track', 'name');
+	const filteredTracks = createItemList(tracks);
+	console.log(filteredTracks);
 	return filteredTracks;
 }
 
 function createTracksTemplate(data) {
-	const trackItems = data.reduce((item, key) => {
+	const trackItems = data.reduce((item, key, i) => {
 		const template = `
-				<li>${key}</li> 
+				<div class="row">
+					<div class="tracklist-row">
+						<div class="number">
+							<span>${[i + 1]}</span>
+						</div>
+						<div class="track-info">
+							<h2>${key.song}</h2>
+							<span>${key.artist}</span>
+						</div>
+					</div>
+				</div>
 		`;
 		item += template;
 		return item;
