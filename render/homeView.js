@@ -27,7 +27,11 @@ function createItemTemplate(data) {
 		const template = `
 		<div id="item-container" class="item" data-index="${key.id}">
 				<img src="${key.img}" alt="Playlist image">
+				<span class="play-button">
+					<span class="play-icon"></span>
+				</span>
 				<h2>${key.playlistName}</h2>
+				<p>Van ${key.owner}</p>
 		</div>
 		`;
 
