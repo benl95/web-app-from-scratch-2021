@@ -157,33 +157,67 @@ h1 {
 /* Detail view */
 
 #tracks-container {
-	width: 100%;
+	width: 70%;
 	height: 100%;
-}
-
-#tracks-list {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-ul {
-	position: relative;
-	height: 100vh;
-	list-style-type: decimal;
-}
-
-li {
-	margin-bottom: 1em;
-	width: 20em;
-	color: #ffffff;
-	font-size: 16px;
-	font-family: 'Helvetica Neue';
-	padding-left: 0.5em;
+	margin: 0 auto;
 }
 
 .row {
+	display: flex;
 	color: #ffffff;
+	font-size: 16px;
+	font-family: 'Helvetica Neue';
+	font-weight: 300;
+	margin-left: 2em;
+	padding-top: 0.8em;
+	padding-bottom: 0.8em;
+	padding-left: 0.8em;
+	margin-right: 6em;
+}
+
+.row:hover {
+	background-color: #2e2e2f;
+	border-radius: 3px;
+}
+
+.number {
+	display: flex;
+	align-items: flex-start;
+}
+
+.number span {
+	padding-top: 0.2em;
+	font-size: 16px;
+}
+
+.tracklist-row {
+	width: 90%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.track-info {
+	display: flex;
+	flex-direction: column;
+	margin-left: 3em;
+	flex-grow: 1;
+}
+
+.track-info span {
+	color: lightgrey;
+	display: inline-block;
+}
+
+.duration {
+	display: flex;
+	align-items: flex-start;
+	height: 3em;
+}
+
+.row h2 {
+	font-weight: 400;
+	font-size: 18px;
 }
 
 /*	Active classes */
