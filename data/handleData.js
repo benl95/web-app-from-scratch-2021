@@ -17,6 +17,7 @@ export const fetchPlaylist = fetchData(playlistEndpoint, options)
 	.then((data) => {
 		const list = data[0].items;
 		const playlistData = createItemList(list);
+		console.log(playlistData);
 		return playlistData;
 	});
 
@@ -24,6 +25,7 @@ export const fetchPlaylist = fetchData(playlistEndpoint, options)
 function createItemList(array) {
 	const playlistData = array.map((x) => {
 		const playlistItem = {
+			owner: x.owner.display_name,
 			playlistName: x.name,
 			id: x.id,
 			img: x.images[0].url,
