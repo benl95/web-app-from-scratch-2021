@@ -4,6 +4,7 @@ import {
 	options,
 	fetchPlaylist,
 } from '../data/handleData.js';
+import { millisToMinutesAndSeconds } from '../utils/utilFunctions.js';
 
 export const renderDetail = () => {
 	fetchPlaylist.then(() => {
@@ -43,7 +44,7 @@ function createItemList(array) {
 		const playlistItem = {
 			artist: x.track.artists[0].name,
 			song: x.track.name,
-			duration: x.track.duration_ms,
+			duration: millisToMinutesAndSeconds(x.track.duration_ms),
 		};
 		return playlistItem;
 	});
@@ -69,6 +70,9 @@ function createTracksTemplate(data) {
 							<h2>${key.song}</h2>
 							<span>${key.artist}</span>
 						</div>
+						<div class="duration">
+							<span>${key.duration}</span>
+						</div>
 					</div>
 				</div>
 		`;
@@ -79,7 +83,7 @@ function createTracksTemplate(data) {
 }
 
 function renderItems(data) {
-	const tracksContainer = document.getElementById('tracks-list');
+	const tracksContainer = document.getElementById('tracks-container');
 	const trackItems = createTracksTemplate(data);
 	tracksContainer.innerHTML = trackItems;
 }
