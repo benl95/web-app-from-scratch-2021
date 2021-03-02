@@ -15,7 +15,8 @@ detail page
 
 ## Interaction diagram
 
-<img width="1769" alt="Schermafbeelding 2021-02-09 om 15 18 54" src="https://user-images.githubusercontent.com/43675725/109700141-b4e03900-7b91-11eb-818c-878a10fcf71f.png">
+![Group 7 (3)](https://user-images.githubusercontent.com/43675725/109703446-c6c3db00-7b95-11eb-918c-67d23097f28a.png)
+
 
 ## Installation Guide
 
