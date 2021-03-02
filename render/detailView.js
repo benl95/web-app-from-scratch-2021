@@ -15,10 +15,10 @@ export const renderDetail = () => {
 function render() {
 	const items = document.getElementsByClassName('item');
 	const itemsToArray = Array.from(items);
-	getIdAndFetchTracks(itemsToArray);
+	getIdAndFetchAndRenderTracks(itemsToArray);
 }
 
-function getIdAndFetchTracks(array) {
+function getIdAndFetchAndRenderTracks(array) {
 	array.forEach((item) => {
 		item.addEventListener('click', () => {
 			const dataIndex = Array.from(item.getAttribute('data-index'));
@@ -30,7 +30,6 @@ function getIdAndFetchTracks(array) {
 			fetchData(tracksEndpoint, options)
 				.then(convertToJSON)
 				.then((data) => {
-					console.log(data);
 					const filteredTracks = filterTracks(data);
 					renderItems(filteredTracks);
 					hideCurrentView();
@@ -54,7 +53,6 @@ function createItemList(array) {
 function filterTracks(data) {
 	const tracks = data[0].items;
 	const filteredTracks = createItemList(tracks);
-	console.log(filteredTracks);
 	return filteredTracks;
 }
 

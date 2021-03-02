@@ -17,7 +17,6 @@ export const fetchPlaylist = fetchData(playlistEndpoint, options)
 	.then((data) => {
 		const list = data[0].items;
 		const playlistData = createItemList(list);
-		console.log(playlistData);
 		return playlistData;
 	});
 
