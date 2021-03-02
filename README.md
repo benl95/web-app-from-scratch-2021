@@ -43,7 +43,14 @@ your own for free at:
 
 ## Data
 
-The Spotify API will be used in this application to get playlists from users.
+The Spotify API will be used in this application to get the following data:
+
+-  A list of all the playlists of the logged in user
+-  Playlist id
+-  The tracks of a playlist
+-  Playlist images
+-  Duration song
+-  Artist song
 
 There are four ways of authorization to access the Spotify API and fetch the
 desired data. These are the following:
