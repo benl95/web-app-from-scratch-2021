@@ -2,24 +2,25 @@
 
 Web App From Scratch @cmda-minor-web 2020 - 2021
 
-Comparify is an application that lets a user compare their own playlists to
-playlists from other users. When a user compares their playlist to another
-playlist the following information will be displayed to the user:
+This project is made with the Spotify API. It lets a user log in with his/her
+spotify account and all the playliststs of the user will be shown on the screen.
+When a user clicks on a playlist the tracks of a playlist will be shown on the
+detail page
 
--  Matching songs
+-  [Link to live demo](https://spotify-authentication.netlify.app)
 
 ## Actor Diagram
 
-<img width="1769" alt="Schermafbeelding 2021-02-09 om 15 18 54" src="https://user-images.githubusercontent.com/43675725/107376402-258fba80-6aea-11eb-9ce9-4cf162a1e649.png">
+<img width="1769" alt="Schermafbeelding 2021-02-09 om 15 18 54" src="https://user-images.githubusercontent.com/43675725/109694730-6d56ae80-7b8b-11eb-92f2-ea0fe58f5954.png">
 
-## Live Demo
+## Interaction diagram
 
--  [Link to live demo](https://spotify-authentication.netlify.app)
+<img width="1769" alt="Schermafbeelding 2021-02-09 om 15 18 54" src="https://user-images.githubusercontent.com/43675725/109700141-b4e03900-7b91-11eb-818c-878a10fcf71f.png">
 
 ## Installation Guide
 
 For security reasons, the spotify key has not been included, feel free to create
-your own for free.
+your own for free at:
 
 [Spotify Dashboard](https://developer.spotify.com/dashboard/)
 
@@ -27,11 +28,18 @@ your own for free.
 2. Clone the repo to directory
    `git clone https://github.com/benl95/web-app-from-scratch-2021.git`
 3. Open folder in desired code editor
+4. Create a `config.js` file in the main folder
+
+   ```js
+   export const clientID = 'ClIENT-ID-HERE',
+   ```
+
+5. Open `index.html` in live server
 
 ## Features
 
--  Compare playlists to each other.
--  Matching songs will be displayed to user
+-  Get playlists of logged in user
+-  Display the tracks a playlist when the user clicks on a playlist
 
 ## Data
 
@@ -75,9 +83,9 @@ fetchData(endpoints, options)
 -  [x] Fetch tracks from a playlist
 -  [x] Filter raw data
 -  [x] Render list of playlists to view
--  [ ] Set up routing for home and detail page
--  [ ] Render songs of a playlist to view
--  [ ] Style pages
+-  [x] Set up routing for home and detail page
+-  [x] Render songs of a playlist to view
+-  [x] Style pages
 -  [ ] Create compare function to compare playlists to each other on matching
        songs
 
