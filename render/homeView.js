@@ -10,11 +10,6 @@ export const renderHome = () => {
 	});
 };
 
-function hideCurrentView() {
-	const loginContainer = document.getElementById('login');
-	loginContainer.setAttribute('class', 'toggle');
-}
-
 function render(data) {
 	const listContainer = document.getElementById(DOMElements.listContainer);
 	const playlistItems = createItemTemplate(data);
@@ -39,4 +34,9 @@ function createItemTemplate(data) {
 		return item;
 	}, []);
 	return playlistItems;
+}
+
+function hideCurrentView() {
+	const loginContainer = document.getElementById('login');
+	loginContainer.setAttribute('class', 'toggle');
 }
