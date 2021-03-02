@@ -1,4 +1,4 @@
-# Comparify
+# WAFS
 
 Web App From Scratch @cmda-minor-web 2020 - 2021
 
