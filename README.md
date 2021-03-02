@@ -11,11 +11,12 @@ detail page
 
 ## Actor Diagram
 
-<img width="1769" alt="Schermafbeelding 2021-02-09 om 15 18 54" src="https://user-images.githubusercontent.com/43675725/109694730-6d56ae80-7b8b-11eb-92f2-ea0fe58f5954.png">
+<img width="1286" alt="Schermafbeelding 2021-03-02 om 20 30 36" src="https://user-images.githubusercontent.com/43675725/109703877-4487e680-7b96-11eb-98a3-0f6298f714cd.png">
+
 
 ## Interaction diagram
 
-![Group 7 (3)](https://user-images.githubusercontent.com/43675725/109703446-c6c3db00-7b95-11eb-918c-67d23097f28a.png)
+<img width="1833" alt="Schermafbeelding 2021-03-02 om 20 30 17" src="https://user-images.githubusercontent.com/43675725/109703784-2ae69f00-7b96-11eb-95eb-8f9cfe4e350f.png">
 
 
 ## Installation Guide
