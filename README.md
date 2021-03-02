@@ -7,7 +7,7 @@ spotify account and all the playliststs of the user will be shown on the screen.
 When a user clicks on a playlist the tracks of a playlist will be shown on the
 detail page
 
--  [Link to live demo](https://spotify-authentication.netlify.app)
+-  [Link to live demo](https://wafs-spotify-api.netlify.app/)
 
 ## Actor Diagram
 
