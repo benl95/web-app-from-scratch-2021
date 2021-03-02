@@ -5,3 +5,18 @@ export function millisToMinutesAndSeconds(millis) {
 	var seconds = ((millis % 60000) / 1000).toFixed(0);
 	return minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
 }
+
+export function loader() {
+	const loader = document.getElementById('loader');
+	loader.classList.remove('loader-off');
+	loader.classList.add('loader-on');
+
+	setTimeout(function () {
+		toggleLoader(loader);
+	}, 1500);
+}
+
+function toggleLoader(element) {
+	element.classList.remove('loader-on');
+	element.classList.add('loader-off');
+}

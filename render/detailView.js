@@ -4,7 +4,7 @@ import {
 	options,
 	fetchPlaylist,
 } from '../data/handleData.js';
-import { millisToMinutesAndSeconds } from '../utils/utilFunctions.js';
+import { millisToMinutesAndSeconds, loader } from '../utils/utilFunctions.js';
 
 export const renderDetail = () => {
 	fetchPlaylist.then(() => {
@@ -35,7 +35,10 @@ function getIdAndFetchAndRenderTracks(array) {
 				.then(convertToJSON)
 				.then((data) => {
 					const filteredTracks = filterTracks(data);
-					renderItems(filteredTracks);
+					loader();
+					setTimeout(function () {
+						renderItems(filteredTracks);
+					}, 1500);
 					hideCurrentView();
 				});
 		});
