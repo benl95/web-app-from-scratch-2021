@@ -13,11 +13,9 @@ detail page
 
 <img width="1286" alt="Schermafbeelding 2021-03-02 om 20 30 36" src="https://user-images.githubusercontent.com/43675725/109703877-4487e680-7b96-11eb-98a3-0f6298f714cd.png">
 
-
 ## Interaction diagram
 
-<img width="1833" alt="Schermafbeelding 2021-03-02 om 20 30 17" src="https://user-images.githubusercontent.com/43675725/109703784-2ae69f00-7b96-11eb-95eb-8f9cfe4e350f.png">
-
+<img width="904" alt="Schermafbeelding 2021-03-02 om 23 28 53" src="https://user-images.githubusercontent.com/43675725/109723962-1bc01b00-7baf-11eb-87e0-5088de1ee897.png">
 
 ## Installation Guide
 
