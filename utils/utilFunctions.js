@@ -13,7 +13,7 @@ export function loader() {
 
 	setTimeout(function () {
 		toggleLoader(loader);
-	}, 1500);
+	}, 2000);
 }
 
 function toggleLoader(element) {

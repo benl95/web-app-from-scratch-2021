@@ -38,7 +38,7 @@ function getIdAndFetchAndRenderTracks(array) {
 					loader();
 					setTimeout(function () {
 						renderItems(filteredTracks);
-					}, 1500);
+					}, 2000);
 					hideCurrentView();
 				});
 		});
